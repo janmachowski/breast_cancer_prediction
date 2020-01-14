@@ -1,27 +1,21 @@
 import pandas as pd
 import seaborn as sn
-
+import matplotlib.pyplot as plt
 from sklearn.metrics import accuracy_score
 
 # importing the dataset
 dataset = pd.read_csv('data.csv')
 
-X = dataset.iloc[:, 2:31].values
+X = dataset.iloc[:, 2:].values
 Y = dataset.iloc[:, 1].values
-
-dataset.head()
-
-print("Cancer dataset dimensions : {}".format(dataset.shape))
-
-dataset.groupby('diagnosis').size()
+print("Dataset dimensions : {}".format(dataset.shape))
 
 # Visualization of data
-dataset.groupby('diagnosis').hist(figsize=(12, 12))
+dataset.hist(bins = 10, figsize=(20, 15))
+# plt.show()
 
 dataset.isnull().sum()
 dataset.isna().sum()
-
-dataframe = pd.DataFrame(Y)
 
 # Encoding categorical data values
 from sklearn.preprocessing import LabelEncoder
@@ -53,6 +47,7 @@ print(accuracy_score(Y_test, Y_pred1))
 
 confusion_matrix = pd.crosstab(Y_test, Y_pred1, rownames=['Actual'], colnames=['Predicted'])
 sn.heatmap(confusion_matrix, annot=True)
+# plt.show()
 # 94.4 Accuracy
 
 # K-NN Algorithm
@@ -66,6 +61,7 @@ print(accuracy_score(Y_test, Y_pred2))
 
 confusion_matrix = pd.crosstab(Y_test, Y_pred2, rownames=['Actual'], colnames=['Predicted'])
 sn.heatmap(confusion_matrix, annot=True)
+# plt.show()
 # 95.8 Accuracy
 
 # SVM
@@ -79,6 +75,7 @@ print(accuracy_score(Y_test, Y_pred3))
 
 confusion_matrix = pd.crosstab(Y_test, Y_pred3, rownames=['Actual'], colnames=['Predicted'])
 sn.heatmap(confusion_matrix, annot=True)
+# plt.show()
 # 96.5 Accuracy
 
 # K-SVM
@@ -92,6 +89,7 @@ print(accuracy_score(Y_test, Y_pred4))
 
 confusion_matrix = pd.crosstab(Y_test, Y_pred4, rownames=['Actual'], colnames=['Predicted'])
 sn.heatmap(confusion_matrix, annot=True)
+# plt.show()
 # 96.5 Accuracy
 
 # Naive Bayes
@@ -105,6 +103,7 @@ print(accuracy_score(Y_test, Y_pred5))
 
 confusion_matrix = pd.crosstab(Y_test, Y_pred5, rownames=['Actual'], colnames=['Predicted'])
 sn.heatmap(confusion_matrix, annot=True)
+# plt.show()
 # 92.3 Accuracy
 
 # Decision Tree Algorithm
@@ -118,6 +117,7 @@ print(accuracy_score(Y_test, Y_pred6))
 
 confusion_matrix = pd.crosstab(Y_test, Y_pred6, rownames=['Actual'], colnames=['Predicted'])
 sn.heatmap(confusion_matrix, annot=True)
+# plt.show()
 # 95.1 Accuracy
 
 # Random Forest Classification Algorithm
@@ -131,6 +131,7 @@ print(accuracy_score(Y_test, Y_pred7))
 
 confusion_matrix = pd.crosstab(Y_test, Y_pred7, rownames=['Actual'], colnames=['Predicted'])
 sn.heatmap(confusion_matrix, annot=True)
+# plt.show()
 # 96.5 Accuracy
 
 # MLP
@@ -143,4 +144,6 @@ print(accuracy_score(Y_test, Y_pred8))
 
 confusion_matrix = pd.crosstab(Y_test, Y_pred8, rownames=['Actual'], colnames=['Predicted'])
 sn.heatmap(confusion_matrix, annot=True)
+# plt.show()
+
 # 96.5 Accuracy

@@ -53,7 +53,7 @@ print(accuracy_score(Y_test, Y_pred1))
 
 confusion_matrix = pd.crosstab(Y_test, Y_pred1, rownames=['Actual'], colnames=['Predicted'])
 sn.heatmap(confusion_matrix, annot=True)
-# 95.8 Accuracy
+# 94.4 Accuracy
 
 # K-NN Algorithm
 from sklearn.neighbors import KNeighborsClassifier
@@ -66,7 +66,7 @@ print(accuracy_score(Y_test, Y_pred2))
 
 confusion_matrix = pd.crosstab(Y_test, Y_pred2, rownames=['Actual'], colnames=['Predicted'])
 sn.heatmap(confusion_matrix, annot=True)
-# 95.1 Accuracy
+# 95.8 Accuracy
 
 # SVM
 from sklearn.svm import SVC
@@ -79,7 +79,7 @@ print(accuracy_score(Y_test, Y_pred3))
 
 confusion_matrix = pd.crosstab(Y_test, Y_pred3, rownames=['Actual'], colnames=['Predicted'])
 sn.heatmap(confusion_matrix, annot=True)
-# 97.2 Accuracy
+# 96.5 Accuracy
 
 # K-SVM
 from sklearn.svm import SVC
@@ -94,7 +94,7 @@ confusion_matrix = pd.crosstab(Y_test, Y_pred4, rownames=['Actual'], colnames=['
 sn.heatmap(confusion_matrix, annot=True)
 # 96.5 Accuracy
 
-# Naive_Bayes
+# Naive Bayes
 from sklearn.naive_bayes import GaussianNB
 
 classifier = GaussianNB()
@@ -105,7 +105,7 @@ print(accuracy_score(Y_test, Y_pred5))
 
 confusion_matrix = pd.crosstab(Y_test, Y_pred5, rownames=['Actual'], colnames=['Predicted'])
 sn.heatmap(confusion_matrix, annot=True)
-# 91.6 Accuracy
+# 92.3 Accuracy
 
 # Decision Tree Algorithm
 from sklearn.tree import DecisionTreeClassifier
@@ -113,12 +113,12 @@ from sklearn.tree import DecisionTreeClassifier
 classifier = DecisionTreeClassifier(criterion='entropy', random_state=0)
 classifier.fit(X_train, Y_train)
 Y_pred6 = classifier.predict(X_test)
-print("DTA")
+print("DT")
 print(accuracy_score(Y_test, Y_pred6))
 
 confusion_matrix = pd.crosstab(Y_test, Y_pred6, rownames=['Actual'], colnames=['Predicted'])
 sn.heatmap(confusion_matrix, annot=True)
-# 95.8 Accuracy
+# 95.1 Accuracy
 
 # Random Forest Classification Algorithm
 from sklearn.ensemble import RandomForestClassifier
@@ -131,4 +131,16 @@ print(accuracy_score(Y_test, Y_pred7))
 
 confusion_matrix = pd.crosstab(Y_test, Y_pred7, rownames=['Actual'], colnames=['Predicted'])
 sn.heatmap(confusion_matrix, annot=True)
-# 98.6 Accuracy
+# 96.5 Accuracy
+
+# MLP
+from sklearn.neural_network import MLPClassifier
+classifier = MLPClassifier(solver='lbfgs', random_state=0, activation='logistic', hidden_layer_sizes=(15,))
+classifier.fit(X_train, Y_train)
+Y_pred8 = classifier.predict(X_test)
+print("MLP")
+print(accuracy_score(Y_test, Y_pred8))
+
+confusion_matrix = pd.crosstab(Y_test, Y_pred8, rownames=['Actual'], colnames=['Predicted'])
+sn.heatmap(confusion_matrix, annot=True)
+# 96.5 Accuracy

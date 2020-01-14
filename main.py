@@ -42,9 +42,7 @@ from sklearn.linear_model import LogisticRegression
 classifier = LogisticRegression(random_state=0)
 classifier.fit(X_train, Y_train)
 Y_pred1 = classifier.predict(X_test)
-print("Logistic Regression Algorithm")
-print(accuracy_score(Y_test, Y_pred1))
-
+print("Logistic Regression Classifier", accuracy_score(Y_test, Y_pred1) * 100, "%")
 confusion_matrix = pd.crosstab(Y_test, Y_pred1, rownames=['Actual'], colnames=['Predicted'])
 sn.heatmap(confusion_matrix, annot=True)
 # plt.show()
@@ -53,12 +51,11 @@ sn.heatmap(confusion_matrix, annot=True)
 # K-NN Algorithm
 from sklearn.neighbors import KNeighborsClassifier
 
-classifier = KNeighborsClassifier(n_neighbors=5, metric='minkowski', p=2)
+classifier = KNeighborsClassifier(n_neighbors=3, metric='minkowski', p=2)
 classifier.fit(X_train, Y_train)
 Y_pred2 = classifier.predict(X_test)
-print("KNN")
-print(accuracy_score(Y_test, Y_pred2))
 
+print("3-Nearest Neighbors Classifier", accuracy_score(Y_test, Y_pred2) * 100, "%")
 confusion_matrix = pd.crosstab(Y_test, Y_pred2, rownames=['Actual'], colnames=['Predicted'])
 sn.heatmap(confusion_matrix, annot=True)
 # plt.show()
@@ -70,8 +67,7 @@ from sklearn.svm import SVC
 classifier = SVC(kernel='linear', random_state=0)
 classifier.fit(X_train, Y_train)
 Y_pred3 = classifier.predict(X_test)
-print("SVM")
-print(accuracy_score(Y_test, Y_pred3))
+print("Support Vector Classifier Linear Kernel", accuracy_score(Y_test, Y_pred3) * 100, "%")
 
 confusion_matrix = pd.crosstab(Y_test, Y_pred3, rownames=['Actual'], colnames=['Predicted'])
 sn.heatmap(confusion_matrix, annot=True)
@@ -84,8 +80,7 @@ from sklearn.svm import SVC
 classifier = SVC(kernel='rbf', random_state=0)
 classifier.fit(X_train, Y_train)
 Y_pred4 = classifier.predict(X_test)
-print("K-SVM")
-print(accuracy_score(Y_test, Y_pred4))
+print("Support Vector Classification RBF Kernel", accuracy_score(Y_test, Y_pred4) * 100, "%")
 
 confusion_matrix = pd.crosstab(Y_test, Y_pred4, rownames=['Actual'], colnames=['Predicted'])
 sn.heatmap(confusion_matrix, annot=True)
@@ -98,8 +93,8 @@ from sklearn.naive_bayes import GaussianNB
 classifier = GaussianNB()
 classifier.fit(X_train, Y_train)
 Y_pred5 = classifier.predict(X_test)
-print("Naive Bayes")
-print(accuracy_score(Y_test, Y_pred5))
+print("Gaussian Naive Bayes Classification", accuracy_score(Y_test, Y_pred5) * 100, "%")
+
 
 confusion_matrix = pd.crosstab(Y_test, Y_pred5, rownames=['Actual'], colnames=['Predicted'])
 sn.heatmap(confusion_matrix, annot=True)
@@ -112,8 +107,7 @@ from sklearn.tree import DecisionTreeClassifier
 classifier = DecisionTreeClassifier(criterion='entropy', random_state=0)
 classifier.fit(X_train, Y_train)
 Y_pred6 = classifier.predict(X_test)
-print("DT")
-print(accuracy_score(Y_test, Y_pred6))
+print("Decision Tree Classifier", accuracy_score(Y_test, Y_pred6) * 100, "%")
 
 confusion_matrix = pd.crosstab(Y_test, Y_pred6, rownames=['Actual'], colnames=['Predicted'])
 sn.heatmap(confusion_matrix, annot=True)
@@ -126,9 +120,7 @@ from sklearn.ensemble import RandomForestClassifier
 classifier = RandomForestClassifier(n_estimators=10, criterion='entropy', random_state=0)
 classifier.fit(X_train, Y_train)
 Y_pred7 = classifier.predict(X_test)
-print("Random Forests")
-print(accuracy_score(Y_test, Y_pred7))
-
+print("Random Forest Classifier", accuracy_score(Y_test, Y_pred7) * 100, "%")
 confusion_matrix = pd.crosstab(Y_test, Y_pred7, rownames=['Actual'], colnames=['Predicted'])
 sn.heatmap(confusion_matrix, annot=True)
 # plt.show()
@@ -139,9 +131,7 @@ from sklearn.neural_network import MLPClassifier
 classifier = MLPClassifier(solver='lbfgs', random_state=0, activation='logistic', hidden_layer_sizes=(15,))
 classifier.fit(X_train, Y_train)
 Y_pred8 = classifier.predict(X_test)
-print("MLP")
-print(accuracy_score(Y_test, Y_pred8))
-
+print("MLP Classifier", accuracy_score(Y_test, Y_pred8) * 100, "%")
 confusion_matrix = pd.crosstab(Y_test, Y_pred8, rownames=['Actual'], colnames=['Predicted'])
 sn.heatmap(confusion_matrix, annot=True)
 # plt.show()

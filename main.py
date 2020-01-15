@@ -12,7 +12,7 @@ print("Dataset dimensions : {}".format(dataset.shape))
 
 # Visualization of data
 dataset.hist(bins = 10, figsize=(20, 15))
-# plt.show()
+plt.show()
 
 dataset.isnull().sum()
 dataset.isna().sum()
@@ -45,7 +45,7 @@ Y_pred1 = classifier.predict(X_test)
 print("Logistic Regression Classifier", accuracy_score(Y_test, Y_pred1) * 100, "%")
 confusion_matrix = pd.crosstab(Y_test, Y_pred1, rownames=['Actual'], colnames=['Predicted'])
 sn.heatmap(confusion_matrix, annot=True)
-# plt.show()
+plt.show()
 # 94.4 Accuracy
 
 # K-NN Algorithm
@@ -58,7 +58,7 @@ Y_pred2 = classifier.predict(X_test)
 print("3-Nearest Neighbors Classifier", accuracy_score(Y_test, Y_pred2) * 100, "%")
 confusion_matrix = pd.crosstab(Y_test, Y_pred2, rownames=['Actual'], colnames=['Predicted'])
 sn.heatmap(confusion_matrix, annot=True)
-# plt.show()
+plt.show()
 # 95.8 Accuracy
 
 # SVM
@@ -71,7 +71,7 @@ print("Support Vector Classifier Linear Kernel", accuracy_score(Y_test, Y_pred3)
 
 confusion_matrix = pd.crosstab(Y_test, Y_pred3, rownames=['Actual'], colnames=['Predicted'])
 sn.heatmap(confusion_matrix, annot=True)
-# plt.show()
+plt.show()
 # 96.5 Accuracy
 
 # K-SVM
@@ -84,7 +84,7 @@ print("Support Vector Classification RBF Kernel", accuracy_score(Y_test, Y_pred4
 
 confusion_matrix = pd.crosstab(Y_test, Y_pred4, rownames=['Actual'], colnames=['Predicted'])
 sn.heatmap(confusion_matrix, annot=True)
-# plt.show()
+plt.show()
 # 96.5 Accuracy
 
 # Naive Bayes
@@ -98,7 +98,7 @@ print("Gaussian Naive Bayes Classification", accuracy_score(Y_test, Y_pred5) * 1
 
 confusion_matrix = pd.crosstab(Y_test, Y_pred5, rownames=['Actual'], colnames=['Predicted'])
 sn.heatmap(confusion_matrix, annot=True)
-# plt.show()
+plt.show()
 # 92.3 Accuracy
 
 # Decision Tree Algorithm
@@ -111,7 +111,7 @@ print("Decision Tree Classifier", accuracy_score(Y_test, Y_pred6) * 100, "%")
 
 confusion_matrix = pd.crosstab(Y_test, Y_pred6, rownames=['Actual'], colnames=['Predicted'])
 sn.heatmap(confusion_matrix, annot=True)
-# plt.show()
+plt.show()
 # 95.1 Accuracy
 
 # Random Forest Classification Algorithm
@@ -123,7 +123,7 @@ Y_pred7 = classifier.predict(X_test)
 print("Random Forest Classifier", accuracy_score(Y_test, Y_pred7) * 100, "%")
 confusion_matrix = pd.crosstab(Y_test, Y_pred7, rownames=['Actual'], colnames=['Predicted'])
 sn.heatmap(confusion_matrix, annot=True)
-# plt.show()
+plt.show()
 # 96.5 Accuracy
 
 # MLP
@@ -134,6 +134,6 @@ Y_pred8 = classifier.predict(X_test)
 print("MLP Classifier", accuracy_score(Y_test, Y_pred8) * 100, "%")
 confusion_matrix = pd.crosstab(Y_test, Y_pred8, rownames=['Actual'], colnames=['Predicted'])
 sn.heatmap(confusion_matrix, annot=True)
-# plt.show()
+plt.show()
 
 # 96.5 Accuracy
